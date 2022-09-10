@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="/images/fav_icon.png" />
+    <title>TODO App</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>
+        <div class="t-d"><div class="t">T <div class="d">D</div></div> </div> 
+        <div class="o">O</div>
+        
+      </h1>
+      <!-- add new task -->
+      <div id="form-container">
+        <form action="" name="new-task-form">
+          <!-- task title -->
+          <!-- <label for="title">Title</label> -->
+          <input type="text" placeholder="Title" name="title" id="title" />
+          <!-- task body -->
+          <!-- <label for="body">Details</label> -->
+          <input
+            type="text"
+            name="body"
+            placeholder="..."
+            id="body"
+            cols="50"
+            rows="20"
+          />
+          <!-- task completed -->
+          <div>
+            <label for="completed">Completed</label>
+            <input type="checkbox" id="completed" />
+          </div>
+          <!-- submit -->
+          <input type="submit" value="+" />
+        </form>
+      </div>
+      <!-- view tasks -->
+      <div id="tasks-displayer"></div>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
