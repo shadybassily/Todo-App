@@ -103,12 +103,12 @@ function handleCrude(event) {
   if (!target) return;
 
   let btn = target.getAttribute("class");
-  //(1)
+  //(1) delte task
   if (btn == "delete-btn") {
     target.closest(".task-holder").remove();
   }
 
-  //(2)
+  //(2) mark task as done
   if (btn == "complete-btn") {
     target
       .closest(".task-holder")
@@ -116,6 +116,76 @@ function handleCrude(event) {
       .classList.toggle("done");
   }
 
-  //(2)
-  
+  //(3)edit an existing task
+  if (btn == "edit-btn") {
+    editTask(target);
+    function editTask(target) {
+      let controlBtns, controlBtnsContainer, saveBtn, cancelBtn;
+
+      let task = target.closest(".task-holder");
+      let title = task.querySelector(".task-title");
+      let body = task.querySelector(".task-body");
+
+      let titleTextArea = document.createElement("textarea");
+      let bodyTextArea = document.createElement("textarea");
+
+      titleTextArea.innerHTML = title.innerHTML;
+      bodyTextArea.innerHTML = body.innerHTML;
+      //styling
+      titleTextArea.classList.add("text-area");
+      bodyTextArea.classList.add("text-area");
+
+      title.replaceWith(titleTextArea);
+      body.replaceWith(bodyTextArea);
+      titleTextArea.focus();
+
+      //hidding all the crud btns when editing
+      target.parentNode.hidden = true;
+      
+      createControlBtns();
+      saveBtn.addEventListener("click", saveTask);
+      cancelBtn.addEventListener("click", cancelTask);
+
+
+
+      function saveTask(e) {
+        title.innerHTML = titleTextArea.value;
+        body.innerHTML = bodyTextArea.value;
+        
+        titleTextArea.replaceWith(title);
+        bodyTextArea.replaceWith(body);
+        //removing save/cancel btns
+        //and showing crud btns
+        controlBtnsContainer.remove()
+        target.parentNode.hidden = false;
+      }
+      function cancelTask(e) {
+        titleTextArea.replaceWith(title);
+        bodyTextArea.replaceWith(body);
+        //removing save/cancel btns
+        //and showing crud btns
+        controlBtnsContainer.remove()
+        target.parentNode.hidden = false;
+      }
+      function createControlBtns() {
+        //(1) create the btns
+        controlBtns = `<div class='control-btns-container'><button class='edit-save'>Save</button><button class='edit-cancel'>Cancel</button></div>`;
+        task.insertAdjacentHTML("beforeend", controlBtns);
+        //selecting them
+        controlBtnsContainer = document.querySelector(".control-btns-container");
+        saveBtn = document.querySelector(".edit-save");
+        cancelBtn = document.querySelector(".edit-cancel");
+      }
+
+      //preventing any action on blur because
+      //we will handle this using save/cancel btns
+      titleTextArea.onblur = function (e) {
+        e.preventDefault();
+      };
+
+      bodyTextArea.onblur = function (e) {
+        e.preventDefault();
+      };
+    }
+  }
 }

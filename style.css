@@ -13,15 +13,13 @@
 }
 
 h1 {
-  
   margin: 0 auto;
-  padding: 35px 0 15px 0 ;
+  padding: 35px 0 15px 0;
   width: 70px;
   color: rgba(22, 19, 19, 0.826);
   position: relative;
   transform: scaleY(1.2);
 }
-
 
 .t-d {
   display: inline-block;
@@ -29,14 +27,13 @@ h1 {
   height: 35px;
   overflow: hidden;
 }
-.d, .t {
+.d,
+.t {
   color: var(--primary);
 }
 
-.t{
-  
-
-  animation-name:  head-animation;
+.t {
+  animation-name: head-animation;
   animation-duration: 1.2s;
   animation-direction: alternate;
   position: relative;
@@ -46,17 +43,25 @@ h1 {
 }
 
 @keyframes head-animation {
-  0%  {top:0px;}
-  25%{top: 0px;}
-  55%{top:-37px;}
-  75%{top:-37px;}
-  100%  {top:-37px;}
+  0% {
+    top: 0px;
+  }
+  25% {
+    top: 0px;
+  }
+  55% {
+    top: -37px;
+  }
+  75% {
+    top: -37px;
+  }
+  100% {
+    top: -37px;
+  }
 }
 .o {
   display: inline-block;
   position: absolute;
-  
-
 }
 /* add new task  */
 #container {
@@ -91,7 +96,7 @@ h1 {
   width: 25vw;
   letter-spacing: 2px;
   word-spacing: 5px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 input[type="text"] {
@@ -171,4 +176,12 @@ input[type="submit"]:hover {
 }
 .done {
   text-decoration: line-through;
+}
+
+/* crud */
+
+.text-area {
+  display: block;
+  color: black;
+  padding: 10px;
 }
