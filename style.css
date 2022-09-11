@@ -75,7 +75,7 @@ h1 {
 
   border-radius: 10px;
 
-  width: 60%;
+  width: 70%;
   margin: 50px auto;
 
   box-shadow: 15px 15px 15px rgba(128, 128, 128, 0.686);
@@ -186,8 +186,13 @@ input[type="submit"]:hover {
 .done {
   color: var(--done);
   text-decoration: line-through;
+  
 }
-
+.completed-task{
+  background-color: #ffffff10;
+  backdrop-filter: blur(22px);
+  background-color: red;
+}
 /* crud */
 /* buttons */
 .btns-container {

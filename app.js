@@ -2,7 +2,7 @@ let container = document.getElementById("container");
 let taskForm = document.forms["new-task-form"];
 let tasksDisplayer = document.getElementById("tasks-displayer");
 let totalTasks = document.getElementById('total-tasks')
-let tasks = [];
+
 
 class Task {
   constructor(title, body, completed) {
@@ -35,7 +35,6 @@ function onFormSubmit(e) {
 
   //creating a new Object
   task = new Task(title, body, completed);
-  tasks.push(task);
 
   showTask(task);
   clearInputFields();
@@ -89,6 +88,7 @@ function showTask(task) {
     btnsContainer
   );
   tasksDisplayer.prepend(taskHolder);
+  calcTotalTasks()
 }
 
 function clearInputFields() {
@@ -109,20 +109,22 @@ function createTime() {
 
 function handleCrude(event) {
   let target = event.target.closest("button");
+  let task =  event.target.closest(".task-holder")
   if (!target) return;
 
   let btn = target.getAttribute("class");
   //(1) delte task
   if (btn == "delete-btn") {
     target.closest(".task-holder").remove();
+    calcTotalTasks()
   }
 
   //(2) mark task as done
   if (btn == "complete-btn") {
-    target
-      .closest(".task-holder")
+    task
       .querySelector(".task-title")
       .classList.toggle("done");
+      calcTotalTasks()
   }
 
   //(3)edit an existing task
@@ -198,3 +200,10 @@ function handleCrude(event) {
     }
   }
 }
+
+function calcTotalTasks(){
+  let total = tasksDisplayer.querySelectorAll('.task-holder').length
+  let completedTasks = tasksDisplayer.querySelectorAll('.done').length
+  totalTasks.innerHTML = completedTasks + "/" +total
+}
+
