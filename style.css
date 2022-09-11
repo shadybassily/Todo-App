@@ -1,7 +1,8 @@
 :root {
-  --primary: #fff;
-  --secondary: #16a085;
-  --tri: #372215;
+  --primary:#fff;
+  --secondary: #970d1a;
+  --tri: #3c243c;
+  --done:#d63031;
 }
 
 * {
@@ -10,6 +11,10 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.712);
+}
+
+body{
+  background-color: #dfe6e9b4;
 }
 
 h1 {
@@ -72,7 +77,7 @@ h1 {
   width: 60%;
   margin: 50px auto;
 
-  box-shadow: 15px 15px 15px rgba(128, 128, 128, 0.139);
+  box-shadow: 15px 15px 15px rgba(128, 128, 128, 0.686);
 }
 #form-container {
   width: 80%;
@@ -83,12 +88,19 @@ h1 {
   justify-content: center;
   position: relative;
 }
+input[type="text"] {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px auto;
+  border: none;
 
+  box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.249);
+}
 #title {
   width: 20vw;
   height: 5vh;
   margin: 10px 0px;
-  transition: 0.5s;
 }
 
 #body {
@@ -99,15 +111,7 @@ h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-input[type="text"] {
-  display: block;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px auto;
-  border: none;
 
-  box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.249);
-}
 :focus {
   outline: unset;
 }
@@ -136,15 +140,17 @@ input[type="submit"]:hover {
 /* buttons */
 .btns-container {
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 15px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
 }
-/* .delete-btn {
+.delete-btn,.edit-btn,.complete-btn {
+  all: unset;
+  padding: 5px;
+  cursor: pointer;
 }
-.edit-btn {
-}
-.complete-btn {
-} */
+
 
 /* displaying tasks */
 #tasks-displayer {
@@ -153,28 +159,41 @@ input[type="submit"]:hover {
 .task-holder {
   position: relative;
   min-height: 5vh;
-  padding: 10px;
+  padding: 15px;
   transition: all 0.5s;
+  overflow-wrap:break-word;
 }
 
-.task-holder:hover {
-  background-color: rgba(128, 128, 128, 0.641) !important;
-}
+
 .task-holder:nth-child(odd) {
-  background-color: rgba(128, 128, 128, 0.141);
+  background-color: #ffffff10;
+  backdrop-filter: blur(12px);
+}
+.task-holder:hover {
+  background-color: #fff;
 }
 .task-title {
-  color: green;
+  color:black;
   font-weight: bold;
-  font-style: italic;
   word-spacing: 2px;
   text-transform: capitalize;
 }
 
 .task-body {
-  color: red;
+  color: var(--tri);
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  padding: 20px 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+.task-time {
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 5px 0px 10px;
+}
+
 .done {
+  color:var(--done);
   text-decoration: line-through;
 }
 
