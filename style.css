@@ -12,6 +12,12 @@
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.712);
   accent-color: var(--primary);
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto Mono', monospace;
+  font-family: 'Sora', sans-serif;
 }
 
 body {
@@ -25,6 +31,8 @@ h1 {
   color: rgba(22, 19, 19, 0.826);
   position: relative;
   transform: scaleY(1.2);
+
+  
 }
 
 .t-d {
@@ -32,6 +40,7 @@ h1 {
   width: 30px;
   height: 35px;
   overflow: hidden;
+  
 }
 .d,
 .t {
@@ -56,13 +65,13 @@ h1 {
     top: 0px;
   }
   55% {
-    top: -37px;
+    top: -39px;
   }
   75% {
-    top: -37px;
+    top: -39px;
   }
   100% {
-    top: -37px;
+    top: -39px;
   }
 }
 .o {
@@ -72,8 +81,11 @@ h1 {
 /* add new task  */
 #container {
   background-image: linear-gradient(175deg, var(--secondary), var(--primary));
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 
-  border-radius: 10px;
+  border-top-left-radius: 55px;
+  border-bottom-right-radius: 30px;
 
   width: 70%;
   margin: 50px auto;
@@ -143,7 +155,8 @@ input[type="submit"]:hover {
   padding-left: 15px;
   padding-bottom: 10px;
   font-size: 15px;
-
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
 }
 #tasks-displayer {
   transition: all 0.5s;
@@ -156,6 +169,8 @@ input[type="submit"]:hover {
   transition: all 0.5s;
   overflow-wrap: break-word;
   border-bottom: 2px solid var(--primary);
+  border-bottom-right-radius: 30px;
+
 }
 
 .task-holder:hover {
@@ -181,6 +196,8 @@ input[type="submit"]:hover {
   font-size: 12px;
   letter-spacing: 1px;
   padding: 5px 0px 10px;
+  font-weight: bold;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .done {
