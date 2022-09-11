@@ -1,8 +1,8 @@
 :root {
-  --primary:#fff;
-  --secondary: #970d1a;
+  --primary: #fff;
+  --secondary: #474787;
   --tri: #3c243c;
-  --done:#d63031;
+  --done: #d63031;
 }
 
 * {
@@ -14,7 +14,7 @@
   accent-color: var(--primary);
 }
 
-body{
+body {
   background-color: #dfe6e9b4;
 }
 
@@ -71,7 +71,7 @@ h1 {
 }
 /* add new task  */
 #container {
-  background-image: linear-gradient(180deg, var(--secondary), var(--primary));
+  background-image: linear-gradient(175deg, var(--secondary), var(--primary));
 
   border-radius: 10px;
 
@@ -92,10 +92,10 @@ input[type="text"] {
   display: block;
   padding: 10px;
   border-radius: 5px;
-  margin: 10px auto;
+  margin: 20px auto;
   border: none;
 
-  box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.249);
+  box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.557);
 }
 #title {
   width: 30vw;
@@ -110,7 +110,6 @@ input[type="text"] {
   word-spacing: 5px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-
 
 :focus {
   outline: unset;
@@ -129,6 +128,7 @@ input[type="submit"] {
   color: var(--secondary);
   border-radius: 5px;
   padding: 5px 10px;
+  box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.557);
 
   transition: 0.5s;
 }
@@ -137,43 +137,32 @@ input[type="submit"]:hover {
   color: var(--primary);
 }
 
-/* buttons */
-.btns-container {
-  position: absolute;
-  right: 15px;
-  top: 20px;
-  display: flex;
-  flex-direction: column;
-}
-.delete-btn,.edit-btn,.complete-btn {
-  all: unset;
-  padding: 5px;
-  cursor: pointer;
-}
-
-
 /* displaying tasks */
+
+#total-tasks{
+  padding-left: 15px;
+  padding-bottom: 10px;
+  font-size: 15px;
+
+}
 #tasks-displayer {
-  padding: 10px 0px;
+  transition: all 0.5s;
+
 }
 .task-holder {
   position: relative;
-  min-height: 5vh;
+  min-height: 17vh;
   padding: 15px;
   transition: all 0.5s;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
+  border-bottom: 2px solid var(--primary);
 }
 
-
-.task-holder:nth-child(odd) {
-  background-color: #ffffff10;
-  backdrop-filter: blur(12px);
-}
 .task-holder:hover {
   background-color: #fff;
 }
 .task-title {
-  color:black;
+  color: black;
   font-weight: bold;
   word-spacing: 2px;
   text-transform: capitalize;
@@ -183,8 +172,10 @@ input[type="submit"]:hover {
   color: var(--tri);
   letter-spacing: 1px;
   word-spacing: 3px;
-  padding: 20px 0;
+  padding: 10px 5px 10px 0px;
+  width: 50vw;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: left;
 }
 .task-time {
   font-size: 12px;
@@ -193,13 +184,30 @@ input[type="submit"]:hover {
 }
 
 .done {
-  color:var(--done);
+  color: var(--done);
   text-decoration: line-through;
 }
 
 /* crud */
+/* buttons */
+.btns-container {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  display: flex;
+  flex-direction: column;
 
-.title-text-area, .body-text-area {
+}
+.delete-btn,
+.edit-btn,
+.complete-btn {
+  all: unset;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.title-text-area,
+.body-text-area {
   all: unset;
   border: 1px solid black;
   border-radius: 5px;
@@ -209,15 +217,34 @@ input[type="submit"]:hover {
   margin-bottom: 15px;
   font-size: 15px;
 }
-.title-text-area{
+.title-text-area {
   width: 25vw;
   height: 3vh;
   font-weight: bold;
 }
 
-.body-text-area{
+.body-text-area {
   height: 15vh;
   letter-spacing: 2px;
   word-spacing: 5px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.control-btns-container{
+  display: flex;
+  gap: 12px;
+
+}
+.edit-save, .edit-cancel{
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--primary);
+  transition: 0.2s;
+}
+
+.edit-save:hover, .edit-cancel:hover{
+  background-color: var(--secondary);
+  color: var(--primary);
 }

@@ -1,5 +1,7 @@
 let container = document.getElementById("container");
 let taskForm = document.forms["new-task-form"];
+let tasksDisplayer = document.getElementById("tasks-displayer");
+let totalTasks = document.getElementById('total-tasks')
 let tasks = [];
 
 class Task {
@@ -40,9 +42,6 @@ function onFormSubmit(e) {
 }
 
 function showTask(task) {
-  //selecting where the tasks are displayed
-  let tasksDisplayer = document.getElementById("tasks-displayer");
-
   //creating new elements for tasks details (title, body ..)
   let taskHolder = document.createElement("div");
   let taskTitleHolder = document.createElement("div");
@@ -54,10 +53,12 @@ function showTask(task) {
   let deleteBtn = document.createElement("button");
   let editBtn = document.createElement("button");
   let completeBtn = document.createElement("button");
-  
+
   deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
   editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
-  completeBtn.innerHTML = `<input type="checkbox" ${task.completed ? 'checked' : false} />`;
+  completeBtn.innerHTML = `<input type="checkbox" ${
+    task.completed ? "checked" : false
+  } />`;
 
   btnsContainer.append(deleteBtn, editBtn, completeBtn);
 
@@ -74,14 +75,19 @@ function showTask(task) {
   deleteBtn.className = "delete-btn";
   editBtn.className = "edit-btn";
   completeBtn.className = "complete-btn";
-  taskCreationTime.className = "task-time"
+  taskCreationTime.className = "task-time";
   //assigning values
   taskTitleHolder.innerHTML = task._title;
   taskBodyHolder.innerHTML = task.body;
-  taskCreationTime.innerHTML = task.createdOn
+  taskCreationTime.innerHTML = task.createdOn;
 
   //appending
-  taskHolder.append(taskCreationTime,taskTitleHolder, taskBodyHolder, btnsContainer);
+  taskHolder.append(
+    taskCreationTime,
+    taskTitleHolder,
+    taskBodyHolder,
+    btnsContainer
+  );
   tasksDisplayer.prepend(taskHolder);
 }
 
@@ -143,13 +149,13 @@ function handleCrude(event) {
       titleTextArea.focus();
 
       //hidding all the crud btns when editing
-      target.parentNode.hidden = true;
+      target.parentNode.style.display = 'none';
 
       createControlBtns();
       saveBtn.addEventListener("click", saveTask);
       cancelBtn.addEventListener("click", cancelTask);
 
-      function saveTask(e) {
+      function saveTask() {
         title.innerHTML = titleTextArea.value;
         body.innerHTML = bodyTextArea.value;
 
@@ -158,19 +164,19 @@ function handleCrude(event) {
         //removing save/cancel btns
         //and showing crud btns
         controlBtnsContainer.remove();
-        target.parentNode.hidden = false;
+        target.parentNode.style.display = 'flex';
       }
-      function cancelTask(e) {
+      function cancelTask() {
         titleTextArea.replaceWith(title);
         bodyTextArea.replaceWith(body);
         //removing save/cancel btns
         //and showing crud btns
         controlBtnsContainer.remove();
-        target.parentNode.hidden = false;
+        target.parentNode.style.display = 'flex';
       }
       function createControlBtns() {
         //(1) create the btns
-        controlBtns = `<div class='control-btns-container'><button class='edit-save'>Save</button><button class='edit-cancel'>Cancel</button></div>`;
+        controlBtns = `<div class='control-btns-container'><button class='edit-save'>Save</button><button class='edit-cancel'>Discard</button></div>`;
         task.insertAdjacentHTML("beforeend", controlBtns);
         //selecting them
         controlBtnsContainer = document.querySelector(
