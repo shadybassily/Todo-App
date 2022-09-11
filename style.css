@@ -11,6 +11,7 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.712);
+  accent-color: var(--primary);
 }
 
 body{
@@ -80,9 +81,8 @@ h1 {
   box-shadow: 15px 15px 15px rgba(128, 128, 128, 0.686);
 }
 #form-container {
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
-  padding: 5px;
 
   display: flex;
   justify-content: center;
@@ -98,14 +98,14 @@ input[type="text"] {
   box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.249);
 }
 #title {
-  width: 20vw;
+  width: 30vw;
   height: 5vh;
   margin: 10px 0px;
 }
 
 #body {
   height: 10vh;
-  width: 25vw;
+  width: 40vw;
   letter-spacing: 2px;
   word-spacing: 5px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -121,7 +121,7 @@ input[type="submit"] {
   cursor: pointer;
 
   position: absolute;
-  top: 20px;
+  top: 12px;
   right: 10px;
 
   text-align: center;
@@ -199,8 +199,25 @@ input[type="submit"]:hover {
 
 /* crud */
 
-.text-area {
+.title-text-area, .body-text-area {
+  all: unset;
+  border: 1px solid black;
+  border-radius: 5px;
   display: block;
   color: black;
-  padding: 10px;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+.title-text-area{
+  width: 25vw;
+  height: 3vh;
+  font-weight: bold;
+}
+
+.body-text-area{
+  height: 15vh;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }

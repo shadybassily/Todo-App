@@ -135,8 +135,8 @@ function handleCrude(event) {
       titleTextArea.innerHTML = title.innerHTML;
       bodyTextArea.innerHTML = body.innerHTML;
       //styling
-      titleTextArea.classList.add("text-area");
-      bodyTextArea.classList.add("text-area");
+      titleTextArea.classList.add("title-text-area");
+      bodyTextArea.classList.add("body-text-area");
 
       title.replaceWith(titleTextArea);
       body.replaceWith(bodyTextArea);
