@@ -12,11 +12,7 @@
   font-family: Arial, Helvetica, sans-serif;
   color: rgba(0, 0, 0, 0.712);
   accent-color: var(--primary);
-  font-family: 'Dancing Script', cursive;
-  font-family: 'Kantumruy Pro', sans-serif;
-  font-family: 'Playfair Display', serif;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-family: 'Roboto Mono', monospace;
+
   font-family: 'Sora', sans-serif;
 }
 
@@ -166,11 +162,12 @@ input[type="submit"]:hover {
   position: relative;
   min-height: 17vh;
   padding: 15px;
-  transition: all 0.5s;
+  transition: all 0.1s;
   overflow-wrap: break-word;
   border-bottom: 2px solid var(--primary);
   border-bottom-right-radius: 30px;
 
+  position: relative;
 }
 
 .task-holder:hover {
@@ -191,6 +188,8 @@ input[type="submit"]:hover {
   width: 50vw;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   text-align: left;
+  white-space: pre-wrap;
+
 }
 .task-time {
   font-size: 12px;
@@ -238,6 +237,7 @@ input[type="submit"]:hover {
   padding: 5px 10px;
   margin-bottom: 15px;
   font-size: 15px;
+
 }
 .title-text-area {
   width: 25vw;
@@ -250,6 +250,7 @@ input[type="submit"]:hover {
   letter-spacing: 2px;
   word-spacing: 5px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  overflow-wrap: break-word;
 }
 
 .control-btns-container{
