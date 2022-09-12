@@ -20,6 +20,24 @@ body {
   background-color: #dfe6e9b4;
 }
 
+/* themes */
+.colors-holder{
+  display: flex;
+  position: absolute;
+}
+.theme-color{
+  width: 20px;
+  height: 15px;
+  margin-left: 5px;
+  cursor: pointer; 
+  transition:  0.3s;
+  border-radius: 0 0 5px 5px;
+}
+
+.theme-color:hover{
+  height: 25px;
+}
+
 h1 {
   margin: 0 auto;
   padding: 35px 0 15px 0;
@@ -27,8 +45,6 @@ h1 {
   color: rgba(22, 19, 19, 0.826);
   position: relative;
   transform: scaleY(1.2);
-
-  
 }
 
 .t-d {
@@ -36,7 +52,6 @@ h1 {
   width: 30px;
   height: 35px;
   overflow: hidden;
-  
 }
 .d,
 .t {
@@ -83,6 +98,7 @@ h1 {
   border-top-left-radius: 55px;
   border-bottom-right-radius: 30px;
 
+  border-radius: 10px 35px 30px;
   width: 70%;
   margin: 50px auto;
 
@@ -165,8 +181,8 @@ input[type="submit"]:hover {
   transition: all 0.1s;
   overflow-wrap: break-word;
   border-bottom: 2px solid var(--primary);
+  border-bottom-left-radius: 35px;
   border-bottom-right-radius: 30px;
-
   position: relative;
 }
 

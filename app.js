@@ -1,7 +1,12 @@
+let r = document.querySelector(":root");
 let container = document.getElementById("container");
 let taskForm = document.forms["new-task-form"];
 let tasksDisplayer = document.getElementById("tasks-displayer");
 let totalTasks = document.getElementById("total-tasks");
+let colors = ["#2ecc71", "#c0392b", "#ffa801", "#4bcffa", "#1e272e", "#474787"];
+let colorsHolder;
+//creating themes
+createPallete(colors);
 
 class Task {
   constructor(title, body, completed) {
@@ -102,7 +107,7 @@ function createTime() {
   let hours = date.getHours();
   if (hours < 10) hours = "0" + hours;
   if (hours > 12) hours = hours - 12;
-  
+
   let mins = date.getMinutes();
   if (mins < 10) mins = "0" + mins;
 
@@ -207,3 +212,31 @@ function calcTotalTasks() {
   totalTasks.innerHTML = completedTasks + "/" + total;
 }
 
+function createPallete(colors) {
+  colorsHolder = document.querySelector(".colors-holder");
+
+  //looping over the available colors
+  //creating and adding class
+  colors.forEach((color) => {
+    let singleColor = document.createElement("div");
+    singleColor.style.backgroundColor = `${color}`;
+    singleColor.classList.add("theme-color");
+    colorsHolder.append(singleColor);
+  });
+}
+
+colorsHolder.addEventListener('click', changeTheme)
+
+function changeTheme(e){
+  let selectedTheme = e.target.style.backgroundColor
+  r.style.setProperty('--secondary', selectedTheme);
+}
+
+// changeThemeBtn.addEventListener('click', ()=>{
+//   changeTheme(r)
+// })
+
+// function changeTheme(r){
+//   r.style.setProperty('--secondary', 'lightblue');
+
+// }
