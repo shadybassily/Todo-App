@@ -5,6 +5,7 @@ let tasksDisplayer = document.getElementById("tasks-displayer");
 let totalTasks = document.getElementById("total-tasks");
 let colors = ["#2ecc71", "#c0392b", "#ffa801", "#4bcffa", "#1e272e", "#474787"];
 let colorsHolder;
+
 //creating themes
 createPallete(colors);
 
@@ -225,18 +226,9 @@ function createPallete(colors) {
   });
 }
 
-colorsHolder.addEventListener('click', changeTheme)
+colorsHolder.addEventListener("click", changeTheme);
 
-function changeTheme(e){
-  let selectedTheme = e.target.style.backgroundColor
-  r.style.setProperty('--secondary', selectedTheme);
+function changeTheme(e) {
+  let selectedTheme = e.target.style.backgroundColor;
+  r.style.setProperty("--secondary", selectedTheme);
 }
-
-// changeThemeBtn.addEventListener('click', ()=>{
-//   changeTheme(r)
-// })
-
-// function changeTheme(r){
-//   r.style.setProperty('--secondary', 'lightblue');
-
-// }

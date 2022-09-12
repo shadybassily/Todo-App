@@ -63,7 +63,7 @@ h1 {
   animation-duration: 1.2s;
   animation-direction: alternate;
   position: relative;
-  /* animation-iteration-count:infinite; */
+  animation-iteration-count:infinite;
   animation-delay: 1s;
   animation-timing-function: ease-in-out;
 }
