@@ -1,8 +1,7 @@
 let container = document.getElementById("container");
 let taskForm = document.forms["new-task-form"];
 let tasksDisplayer = document.getElementById("tasks-displayer");
-let totalTasks = document.getElementById('total-tasks')
-
+let totalTasks = document.getElementById("total-tasks");
 
 class Task {
   constructor(title, body, completed) {
@@ -88,7 +87,7 @@ function showTask(task) {
     btnsContainer
   );
   tasksDisplayer.prepend(taskHolder);
-  calcTotalTasks()
+  calcTotalTasks();
 }
 
 function clearInputFields() {
@@ -99,8 +98,11 @@ function clearInputFields() {
 
 function createTime() {
   let date = new Date();
+
   let hours = date.getHours();
   if (hours < 10) hours = "0" + hours;
+  if (hours > 12) hours = hours - 12;
+  
   let mins = date.getMinutes();
   if (mins < 10) mins = "0" + mins;
 
@@ -109,22 +111,20 @@ function createTime() {
 
 function handleCrude(event) {
   let target = event.target.closest("button");
-  let task =  event.target.closest(".task-holder")
+  let task = event.target.closest(".task-holder");
   if (!target) return;
 
   let btn = target.getAttribute("class");
   //(1) delte task
   if (btn == "delete-btn") {
     target.closest(".task-holder").remove();
-    calcTotalTasks()
+    calcTotalTasks();
   }
 
   //(2) mark task as done
   if (btn == "complete-btn") {
-    task
-      .querySelector(".task-title")
-      .classList.toggle("done");
-      calcTotalTasks()
+    task.querySelector(".task-title").classList.toggle("done");
+    calcTotalTasks();
   }
 
   //(3)edit an existing task
@@ -151,7 +151,7 @@ function handleCrude(event) {
       titleTextArea.focus();
 
       //hidding all the crud btns when editing
-      target.parentNode.style.display = 'none';
+      target.parentNode.style.display = "none";
 
       createControlBtns();
       saveBtn.addEventListener("click", saveTask);
@@ -166,7 +166,7 @@ function handleCrude(event) {
         //removing save/cancel btns
         //and showing crud btns
         controlBtnsContainer.remove();
-        target.parentNode.style.display = 'flex';
+        target.parentNode.style.display = "flex";
       }
       function cancelTask() {
         titleTextArea.replaceWith(title);
@@ -174,7 +174,7 @@ function handleCrude(event) {
         //removing save/cancel btns
         //and showing crud btns
         controlBtnsContainer.remove();
-        target.parentNode.style.display = 'flex';
+        target.parentNode.style.display = "flex";
       }
       function createControlBtns() {
         //(1) create the btns
@@ -201,9 +201,9 @@ function handleCrude(event) {
   }
 }
 
-function calcTotalTasks(){
-  let total = tasksDisplayer.querySelectorAll('.task-holder').length
-  let completedTasks = tasksDisplayer.querySelectorAll('.done').length
-  totalTasks.innerHTML = completedTasks + "/" +total
+function calcTotalTasks() {
+  let total = tasksDisplayer.querySelectorAll(".task-holder").length;
+  let completedTasks = tasksDisplayer.querySelectorAll(".done").length;
+  totalTasks.innerHTML = completedTasks + "/" + total;
 }
 

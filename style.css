@@ -160,7 +160,7 @@ input[type="submit"]:hover {
 }
 .task-holder {
   position: relative;
-  min-height: 17vh;
+  min-height: 20vh;
   padding: 15px;
   transition: all 0.1s;
   overflow-wrap: break-word;
@@ -217,7 +217,6 @@ input[type="submit"]:hover {
   top: 5px;
   display: flex;
   flex-direction: column;
-
 }
 .delete-btn,
 .edit-btn,
