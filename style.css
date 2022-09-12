@@ -1,7 +1,6 @@
 :root {
   --primary: #fff;
   --secondary: #474787;
-  --tri: #3c243c;
   --done: #d63031;
 }
 
@@ -13,7 +12,7 @@
   color: rgba(0, 0, 0, 0.712);
   accent-color: var(--primary);
 
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
 }
 
 body {
@@ -21,20 +20,21 @@ body {
 }
 
 /* themes */
-.colors-holder{
+.colors-holder {
   display: flex;
   position: absolute;
 }
-.theme-color{
+.theme-color {
+  border: 1px solid rgba(0, 0, 0, 0.202);
   width: 20px;
   height: 15px;
   margin-left: 5px;
-  cursor: pointer; 
-  transition:  0.3s;
+  cursor: pointer;
+  transition: 0.3s;
   border-radius: 0 0 5px 5px;
 }
 
-.theme-color:hover{
+.theme-color:hover {
   height: 25px;
 }
 
@@ -98,14 +98,14 @@ h1 {
   border-top-left-radius: 55px;
   border-bottom-right-radius: 30px;
 
-  border-radius: 10px 35px 30px;
+  border-radius: 10px 55px 30px 35px;
   width: 70%;
   margin: 50px auto;
 
   box-shadow: 15px 15px 15px rgba(128, 128, 128, 0.686);
 }
 #form-container {
-  width: 90%;
+  width: 80%;
   margin: 20px auto;
 
   display: flex;
@@ -118,7 +118,6 @@ input[type="text"] {
   border-radius: 5px;
   margin: 20px auto;
   border: none;
-
   box-shadow: 5px 5px 8px rgba(128, 128, 128, 0.557);
 }
 #title {
@@ -128,7 +127,7 @@ input[type="text"] {
 }
 
 #body {
-  height: 10vh;
+  height: 15vh;
   width: 40vw;
   letter-spacing: 2px;
   word-spacing: 5px;
@@ -163,16 +162,15 @@ input[type="submit"]:hover {
 
 /* displaying tasks */
 
-#total-tasks{
+#total-tasks {
   padding-left: 15px;
   padding-bottom: 10px;
   font-size: 15px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-weight: bold;
 }
 #tasks-displayer {
   transition: all 0.5s;
-
 }
 .task-holder {
   position: relative;
@@ -205,22 +203,20 @@ input[type="submit"]:hover {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   text-align: left;
   white-space: pre-wrap;
-
 }
 .task-time {
   font-size: 12px;
   letter-spacing: 1px;
   padding: 5px 0px 10px;
   font-weight: bold;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .done {
   color: var(--done);
   text-decoration: line-through;
-  
 }
-.completed-task{
+.completed-task {
   background-color: #ffffff10;
   backdrop-filter: blur(22px);
   background-color: red;
@@ -230,7 +226,7 @@ input[type="submit"]:hover {
 .btns-container {
   position: absolute;
   right: 15px;
-  top: 5px;
+  top: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -238,7 +234,7 @@ input[type="submit"]:hover {
 .edit-btn,
 .complete-btn {
   all: unset;
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -252,7 +248,6 @@ input[type="submit"]:hover {
   padding: 5px 10px;
   margin-bottom: 15px;
   font-size: 15px;
-
 }
 .title-text-area {
   width: 25vw;
@@ -268,12 +263,12 @@ input[type="submit"]:hover {
   overflow-wrap: break-word;
 }
 
-.control-btns-container{
+.control-btns-container {
   display: flex;
   gap: 12px;
-
 }
-.edit-save, .edit-cancel{
+.edit-save,
+.edit-cancel {
   padding: 5px 10px;
   border-radius: 3px;
   border: none;
@@ -282,7 +277,73 @@ input[type="submit"]:hover {
   transition: 0.2s;
 }
 
-.edit-save:hover, .edit-cancel:hover{
+.edit-save:hover,
+.edit-cancel:hover {
   background-color: var(--secondary);
   color: var(--primary);
+}
+
+@media only screen and (max-width: 600px) {
+  #container {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #container {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  body {
+    font-size: 20px;
+  }
+  #container {
+    width: 70%;
+  }
+  #title {
+    width: 15vw;
+    height: 10vh;
+  }
+
+  #body {
+    height: 15vh;
+    width: 30vw;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  .t-d {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  }
+  @keyframes head-animation {
+    0% {
+      top: 0px;
+    }
+    25% {
+      top: 0px;
+    }
+    55% {
+      top: -52px;
+    }
+    75% {
+      top: -52px;
+    }
+    100% {
+      top: -52px;
+    }
+  }
+
+  input[type="submit"] {
+    
+  
+ 
+    padding: 15px 20px;
+   
+  
+  }
 }
